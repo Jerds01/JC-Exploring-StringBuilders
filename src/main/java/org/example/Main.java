@@ -4,14 +4,45 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    // Exercise 1: append() - Appending Content
+        StringBuilder sb = new StringBuilder("Hello");
+        sb.append(", Cadets!");
+        System.out.println(sb);
+    // Exercise 2: insert() - Inserting Content at a Position
+        StringBuilder sb2 = new StringBuilder("Java is great!");
+        sb2.insert(8, "really ");
+        System.out.println(sb2);
+    // Exercise 3: delete() - Deleting Content
+        StringBuilder sb3 = new StringBuilder("This is a test sentence.");
+        // Deletes " a test"
+        sb3.delete(8, 16);
+        System.out.println("After delete(8, 16): " + sb3);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Deletes the character at index 4 (the ' ')
+        sb3.deleteCharAt(4);
+        System.out.println("After deleteCharAt(4): " + sb3);
+    // Exercise 4 : replace() - Replacing a Section
+        StringBuilder sb4 = new StringBuilder("I like programming in Python.");
+        sb4.replace(24, 30, "Java");
+        System.out.println(sb4);
+    // Exercise 5: Method Chaining
+        StringBuilder sb5 = new StringBuilder("Start");
+        sb5.append("...").insert(0, "Ready, Set, ").delete(12, 15);
+        System.out.println(sb5);
+    // Exercise 6 : substring(), indexOf(), and Non-Existing Words
+        StringBuilder sb6 = new StringBuilder("The quick brown fox jumps over the lazy dog.");
+
+        // Substring returns a String, it does not modify the StringBuilder
+        String sub = sb6.substring(16, 19);
+        System.out.println("Substring: " + sub);
+
+        // indexOf works just like in String
+        int indexOfFox = sb6.indexOf("fox");
+        System.out.println("Index of 'fox': " + indexOfFox);
+
+        // Searching for a word that doesn't exist
+        int indexOfCat = sb6.indexOf("cat");
+        System.out.println("Index of 'cat': " + indexOfCat);
+
     }
-}
+    }
